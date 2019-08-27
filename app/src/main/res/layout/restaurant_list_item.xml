@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:padding="16dp">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25"/>
+
+    <ImageView android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:id="@+id/restaurant_image"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toStartOf="@id/guideline"
+               android:scaleType="fitCenter"
+               android:contentDescription="@string/restaurant_icon_descriptor"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/status"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/name"/>
+
+    <TextView android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:id="@+id/name"
+              android:textSize="14sp"
+              android:textStyle="bold"
+              android:textColor="@android:color/black"
+              android:layout_marginStart="8dp"
+              app:layout_constraintStart_toEndOf="@id/guideline"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:id="@+id/description"
+              android:textColor="@color/light_gray"
+              android:textSize="12sp"
+              android:layout_marginStart="8dp"
+              app:layout_constraintStart_toEndOf="@id/guideline"
+              app:layout_constraintEnd_toStartOf="@id/status"
+              app:layout_constraintTop_toBottomOf="@id/name"
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
