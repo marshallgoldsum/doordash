@@ -16,6 +16,10 @@ class DashApplication : Application(), HasActivityInjector {
 
     lateinit var applicationComponent: ApplicationComponent
 
+    init {
+        dashApplication = this
+    }
+
     override fun activityInjector(): AndroidInjector<Activity> {
         return activityDispatchingAndroidInjector
     }
@@ -26,5 +30,16 @@ class DashApplication : Application(), HasActivityInjector {
             .application(this)
             .build()
         applicationComponent.inject(this)
+    }
+
+    companion object {
+        var dashApplication:DashApplication? = null
+
+        fun getInstance():DashApplication {
+            if (dashApplication == null) {
+                dashApplication = DashApplication()
+            }
+            return dashApplication!!
+        }
     }
 }

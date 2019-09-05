@@ -9,7 +9,8 @@ import com.mgoldsum.dash.model.RestaurantModel
 
 class RestaurantAdapter(
     private val context: Context,
-    private val dataSource: ArrayList<RestaurantModel>
+    private val dataSource: ArrayList<RestaurantModel>,
+    private val model: DashViewModel
 ) : RecyclerView.Adapter<RestaurantViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {
@@ -25,10 +26,16 @@ class RestaurantAdapter(
         holder.name.text = restaurantModel.name
         holder.description.text = restaurantModel.description
         holder.status.text = restaurantModel.status
+        holder.favorite.text = restaurantModel.favorite
         Glide.with(holder.itemView)
             .load(restaurantModel.cover_img_url)
             .fitCenter()
             .into(holder.image)
+        holder.favorite.setOnClickListener {
+            model.toggleFavorite(restaurantModel.id)
+            restaurantModel.toggleFavorite()
+            holder.favorite.text = restaurantModel.favorite
+        }
     }
 
     override fun getItemId(position: Int): Long {

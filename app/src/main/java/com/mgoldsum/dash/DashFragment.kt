@@ -35,7 +35,7 @@ class DashFragment : Fragment() {
         model.restaurants.observe(this, Observer {
             restaurant_list_view.apply {
                 layoutManager = LinearLayoutManager(activity)
-                adapter = RestaurantAdapter(requireContext(), it)
+                adapter = RestaurantAdapter(requireContext(), it, model)
                 addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
             }
         })

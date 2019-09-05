@@ -4,9 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 
-class DashViewModel @Inject constructor(dashRepository: DashRepository) : ViewModel() {
+class DashViewModel @Inject constructor(val dashRepository: DashRepository) : ViewModel() {
 
     var restaurants = dashRepository.fetchRestaurants(37.422740, -122.139956, 0, 50)
+
+    fun toggleFavorite(id:Int){
+        dashRepository.toggleFavorite(id)
+    }
 
 }
 

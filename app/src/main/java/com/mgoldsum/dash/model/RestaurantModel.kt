@@ -6,5 +6,14 @@ data class RestaurantModel(
     val description: String,
     val cover_img_url: String,
     val status: String,
-    val delivery_fee: String
-)
+    val delivery_fee: String,
+    var favorite: String = "Not Favorite"
+) {
+    fun toggleFavorite(){
+        if (favorite == "Not Favorite") {
+            favorite = "Favorite"
+        } else {
+            favorite = "Not Favorite"
+        }
+    }
+}
